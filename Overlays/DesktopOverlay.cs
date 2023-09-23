@@ -67,12 +67,14 @@ public class DesktopOverlay : BaseOverlay, IInteractable, IGrabbable
     {
         _capture.Resume();
         base.Show();
+        VrcOsc.SendIsOverlayOpen(isOpen: true);
     }
 
     public override void Hide()
     {
         _capture.Pause();
         base.Hide();
+        VrcOsc.SendIsOverlayOpen(isOpen: false);
     }
 
     public void OnGrabbed(PointerHit hitData)
